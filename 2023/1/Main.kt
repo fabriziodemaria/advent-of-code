@@ -1,196 +1,28 @@
 fun main() {
     var sum = 0
-    val data: Array<String> = arrayOf()
-    for (line in data) {
-        var pointer = 0
-        var first = 0
-        var second = 0
-        val crunched = indexMatching(line)
-        val size = crunched.size
-        while(pointer < size) {
-            if (crunched[pointer] in 0..9) {
-                first = crunched[pointer]
-                break
-            }
-            pointer++
-        }
-        pointer = size - 1
-        while(pointer >= 0) {
-            if (crunched[pointer] in 0..9) {
-                if (first != 0) {
-                    first *= 10
-                }
-                second = crunched[pointer]
-                break
-            }
-            pointer--
-        }
-        sum += first + second
+    for (line in Input().data) {
+        val digits = indexMatching(line)
+        sum += digits.first() * 10 + digits.last()
     }
     println(sum)
 }
 
-private fun indexMatching(i: String): Array<Int> {
-    val nums = IntArray(i.length) { -1 }
-    var cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("zero" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 0
+private fun indexMatching(input: String): List<Int> {
+    val nums = mutableListOf<Int>()
+    for (i in 0..input.length) {
+        val p = input.subSequence(i, input.length)
+        when {
+            p.startsWith("zero") || p.startsWith("0") -> nums.add(0)
+            p.startsWith("one") || p.startsWith("1") -> nums.add(1)
+            p.startsWith("two") || p.startsWith("2") -> nums.add(2)
+            p.startsWith("three") || p.startsWith("3") -> nums.add(3)
+            p.startsWith("four") || p.startsWith("4") -> nums.add(4)
+            p.startsWith("five") || p.startsWith("5") -> nums.add(5)
+            p.startsWith("six") || p.startsWith("6") -> nums.add(6)
+            p.startsWith("seven") || p.startsWith("7") -> nums.add(7)
+            p.startsWith("eight") || p.startsWith("8") -> nums.add(8)
+            p.startsWith("nine") || p.startsWith("9") -> nums.add(9)
         }
-        cursor++
     }
-    cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("one" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 1
-        }
-        cursor++
-    }
-    cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("two" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 2
-        }
-        cursor++
-    }
-    cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("three" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 3
-        }
-        cursor++
-    }
-    cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("four" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 4
-        }
-        cursor++
-    }
-    cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("five" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 5
-        }
-        cursor++
-    }
-    cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("six" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 6
-        }
-        cursor++
-    }
-    cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("seven" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 7
-        }
-        cursor++
-    }
-    cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("eight" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 8
-        }
-        cursor++
-    }
-    cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("nine" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 9
-        }
-        cursor++
-    }
-    cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("0" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 0
-        }
-        cursor++
-    }
-    cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("1" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 1
-        }
-        cursor++
-    }
-    cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("2" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 2
-        }
-        cursor++
-    }
-    cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("3" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 3
-        }
-        cursor++
-    }
-    cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("4" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 4
-        }
-        cursor++
-    }
-    cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("5" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 5
-        }
-        cursor++
-    }
-    cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("6" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 6
-        }
-        cursor++
-    }
-    cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("7" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 7
-        }
-        cursor++
-    }
-    cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("8" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 8
-        }
-        cursor++
-    }
-    cursor = 0
-    for (p in i.toCharArray()) {
-        val foundIndex = i.indexOf("9" , cursor, true)
-        if (foundIndex != -1) {
-            nums[foundIndex] = 9
-        }
-        cursor++
-    }
-    return nums.toTypedArray()
+    return nums.toList()
 }
