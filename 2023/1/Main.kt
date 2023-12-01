@@ -5,7 +5,7 @@ fun main() {
         var pointer = 0
         var first = 0
         var second = 0
-        val crunched = crunch(line)
+        val crunched = indexMatching(line)
         val size = crunched.size
         while(pointer < size) {
             if (crunched[pointer] in 0..9) {
@@ -30,7 +30,7 @@ fun main() {
     println(sum)
 }
 
-private fun crunch(i: String): Array<Int> {
+private fun indexMatching(i: String): Array<Int> {
     val nums = IntArray(i.length) { -1 }
     var cursor = 0
     for (p in i.toCharArray()) {
