@@ -15,10 +15,7 @@ fun main() {
                 }
             }
         }
-        if (g > 13 || r > 12 || b > 14) {
-            continue
-        }
-        result += keyValue[0].toInt()
+        result += g * r * b
     }
     println(result)
 }
