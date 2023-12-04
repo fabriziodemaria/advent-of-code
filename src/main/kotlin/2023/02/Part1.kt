@@ -1,3 +1,5 @@
+package `2023`.`02`
+
 import kotlin.math.max
 
 fun main() {

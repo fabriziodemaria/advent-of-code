@@ -1,3 +1,5 @@
+package `2023`.`01`
+
 fun main() {
     var sum = 0
     for (line in Input().data) {

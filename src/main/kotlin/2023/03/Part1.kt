@@ -1,3 +1,5 @@
+package `2023`.`03`
+
 fun main() {
     // Generate matrix
     val matrix: MutableList<MutableList<Char>> = mutableListOf()

@@ -1,4 +1,4 @@
-
+package `2023`.`02`
 data class Input(
     val data: Array<String> = arrayOf(
         "Game 1: 2 blue, 3 red; 3 green, 3 blue, 6 red; 4 blue, 6 red; 2 green, 2 blue, 9 red; 2 red, 4 blue",

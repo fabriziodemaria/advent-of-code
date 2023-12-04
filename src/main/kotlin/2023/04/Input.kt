@@ -1,3 +1,5 @@
+package `2023`.`04`
+
 data class Input(
     val test: Array<String> = arrayOf(
         "Card 198: 69 41 63 28  9 10  3 64 87 57 | 19 78 88 38 29 54 93 76 22 36 86 20 61 53 66  4 77 67 85 11 27 94 43 74 90",
