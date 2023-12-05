@@ -4,10 +4,11 @@ import java.lang.Exception
 import kotlin.math.min
 
 fun main() {
-    val input = Input().input
-    val seeds = input[0].removePrefix("seeds: ")
+    val input = Input().example
+    val seeds = getSeedsFromRanges(input[0].removePrefix("seeds: ")
         .split(" ").toList()
         .map { it.toLong() }
+    )
     val almanac = generateAlmanac(input)
     var minLocation = Long.MAX_VALUE
 
@@ -17,6 +18,16 @@ fun main() {
             minLocation)
     }
     println(minLocation)
+}
+
+private fun getSeedsFromRanges(ranges: List<Long>): List<Long> {
+    var newSeeds: MutableList<Long> = mutableListOf()
+    for(range: List<Long> in ranges.chunked(2)) {
+        for(multi in 0..<range[1]) {
+            newSeeds.add(range[0]+multi)
+        }
+    }
+    return newSeeds.toList()
 }
 
 private fun traverseAlmanac(
