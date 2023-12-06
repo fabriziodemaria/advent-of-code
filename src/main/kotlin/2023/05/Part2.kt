@@ -5,7 +5,7 @@ import kotlin.math.max
 import kotlin.math.min
 
 fun main() {
-    val input = Input().input
+    val input = Input().example
     val seeds = input[0].removePrefix("seeds: ")
         .split(" ").toList()
         .map { it.toLong() }
@@ -44,9 +44,21 @@ private fun traverseAlmanac(
  */
 private fun mapRanges(ranges: List<LongRange>, mapEntries: List<List<Long>>): List<LongRange> {
     val nextStepValues: MutableList<LongRange> = mutableListOf()
+    val sortedMapEntries = mapEntries.sortedBy { it[1] }
+    val mapEntriesMin = sortedMapEntries.first()[1]
+    val mapEntriesMax = sortedMapEntries.last()[1] + sortedMapEntries.last()[2]
+
     for (range: LongRange in ranges) {
         for (chunk in mapEntries) {
             nextStepValues.addAll(mapRange(range, chunk))
+        }
+
+        // Deal with all the source entries that were not matching any mapEntry
+        if (range.first < mapEntriesMin) {
+            nextStepValues.add(LongRange(range.first, min(mapEntriesMin, range.first)))
+        }
+        if (range.last > mapEntriesMax) {
+            nextStepValues.add(LongRange(max(mapEntriesMax, range.first), range.last))
         }
     }
     return mergeRanges(nextStepValues)
