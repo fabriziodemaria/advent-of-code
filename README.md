@@ -1,9 +1,3 @@
-# Advent Of Code
+# Advent of Code 2023
 
-Solutions to https://adventofcode.com/
-
-### Format text input as list of strings
-Copy the input text from the website, then:
-```
-pbpaste | sed -r 's/$/",/g' | sed -r 's/^/"/' | sed '$ s/.$//' | pbcopy
-```
+Kotlin solutions for Advent of Code 2023 puzzles, organized by day under `src/main/kotlin/2023`.
