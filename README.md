@@ -1,6 +1,6 @@
 # Advent Of Code
 
-Solutions to https://adventofcode.com/
+Kotlin solutions for the Advent of Code 2023 challenges: https://adventofcode.com/
 
 ### Format text input as list of strings
 Copy the input text from the website, then:
